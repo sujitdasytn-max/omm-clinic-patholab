@@ -3,380 +3,642 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#075c43">
-<meta name="description" content="Omm Clinic and Patho Lab, Balianta, Hanspal, Bhubaneswar. Contact us for diagnostic tests and appointment enquiries.">
-<title>Omm Clinic & Patho Lab | Bhubaneswar</title>
+<meta name="theme-color" content="#087f5b">
+<meta name="description" content="OMM Clinic & Patho Lab, Balianta, Hanspal, Bhubaneswar. Doctor appointments and laboratory test enquiries.">
+<title>OMM Clinic & Patho Lab | Bhubaneswar</title>
 
 <style>
 :root {
-  --green: #08764f;
-  --dark: #064b36;
-  --lime: #b8e34b;
-  --light: #f3faf5;
+  --green: #087f5b;
+  --dark: #075b43;
+  --light: #eaf8f1;
   --text: #18352a;
-  --muted: #61736a;
-  --white: #fff;
+  --muted: #61736c;
+  --white: #ffffff;
+  --border: #dcebe3;
+  --shadow: 0 10px 30px rgba(8,70,48,.08);
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
-  background: #fff;
+  background: #fbfefc;
   line-height: 1.6;
 }
-a { text-decoration: none; }
+a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; }
-.container { width: min(1120px, 91%); margin: auto; }
+.topbar {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 13px;
+}
 header {
   position: sticky;
   top: 0;
   z-index: 20;
   background: rgba(255,255,255,.97);
-  border-bottom: 1px solid #e6eee8;
+  border-bottom: 1px solid var(--border);
 }
+.container { max-width: 1150px; margin: auto; padding: 0 20px; }
 .nav {
-  min-height: 76px;
+  min-height: 75px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  align-items: center;
+  gap: 15px;
 }
-.brand { display:flex; align-items:center; gap:10px; color:var(--dark); }
+.brand { display: flex; align-items: center; gap: 10px; }
 .brand img {
-  width: 49px; height:49px; object-fit:contain;
-  border-radius:50%;
+  width: 48px; height: 48px; object-fit: contain;
+  border-radius: 10px;
 }
-.brand strong { display:block; font-size:16px; line-height:1.25; }
-.brand small { color:var(--muted); font-size:11px; }
-.navlinks { display:flex; gap:20px; align-items:center; }
-.navlinks a { color:var(--text); font-size:14px; font-weight:600; }
+.brand strong { display: block; color: var(--dark); line-height: 1.3; }
+.brand small { color: var(--muted); }
+.navlinks { display: flex; align-items: center; gap: 17px; font-size: 14px; font-weight: bold; }
+.navlinks a:hover { color: var(--green); }
 .btn {
-  display:inline-flex; justify-content:center; align-items:center; gap:8px;
-  padding:13px 19px; border:0; border-radius:9px;
-  background:var(--green); color:white; font-weight:700;
-  cursor:pointer; text-align:center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 17px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--green);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
 }
-.btn:hover { background:var(--dark); }
-.btn-outline { background:white; color:var(--green); border:1px solid #c8dfd1; }
+.btn:hover { background: var(--dark); }
+.btn-outline { background: white; color: var(--dark); border: 1px solid var(--border); }
+.btn-outline:hover { background: var(--light); color: var(--dark); }
+.menu-toggle {
+  display: none;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--dark);
+  border-radius: 9px;
+  font-weight: bold;
+}
 .hero {
-  padding:65px 0;
-  background: radial-gradient(circle at 90% 10%, #e0f4c7 0, transparent 35%), var(--light);
-}
-.hero-grid {
-  display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:38px;
+  max-width: 1150px;
+  margin: auto;
+  padding: 58px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: center;
 }
 .eyebrow {
-  display:inline-block; background:#e0f1d6; color:var(--dark);
-  border-radius:30px; padding:7px 13px; font-size:12px; font-weight:700;
+  display: inline-block;
+  background: var(--light);
+  color: var(--dark);
+  padding: 7px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
-h1 { font-size:clamp(36px,5.3vw,58px); line-height:1.1; letter-spacing:-1.5px; margin:20px 0; }
-h1 span { color:var(--green); }
-.hero p { font-size:17px; color:var(--muted); max-width:510px; }
-.hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
-.hero-photo {
-  width:100%; height:390px; object-fit:cover;
-  border-radius:22px; box-shadow:0 18px 45px #143c2520;
+h1 {
+  font-size: clamp(38px,5vw,62px);
+  line-height: 1.1;
+  margin: 18px 0;
+  letter-spacing: -1.5px;
 }
-.trust { display:flex; flex-wrap:wrap; gap:18px; margin-top:27px; font-size:13px; font-weight:600; }
-.trust span { color:var(--dark); }
-section { padding:68px 0; }
-.section-head { text-align:center; max-width:650px; margin:0 auto 35px; }
-.section-head h2 { font-size:clamp(27px,4vw,38px); line-height:1.2; margin:10px 0; }
-.section-head p { color:var(--muted); }
-.cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+h1 span { color: var(--green); }
+.hero p { color: var(--muted); font-size: 17px; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 23px 0; }
+.hero-photo { position: relative; }
+.hero-photo img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+.photo-tag {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: white;
+  padding: 12px 15px;
+  border-radius: 12px;
+  font-weight: bold;
+  color: var(--dark);
+  box-shadow: var(--shadow);
+}
+section { padding: 60px 20px; }
+.section-inner { max-width: 1150px; margin: auto; }
+.soft { background: #f1faf5; }
+.section-heading { max-width: 700px; margin: 0 auto 32px; text-align: center; }
+.section-heading h2 { margin: 10px 0; font-size: clamp(28px,4vw,40px); line-height: 1.2; }
+.section-heading p { color: var(--muted); margin: 0; }
+.cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
 .card {
-  padding:22px; border:1px solid #e4eee7; border-radius:15px;
-  background:white; box-shadow:0 7px 24px #174a2710;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 23px;
+  box-shadow: 0 5px 18px rgba(8,70,48,.04);
 }
 .icon {
-  width:45px; height:45px; border-radius:12px; display:grid;
-  place-items:center; background:#e8f5df; font-size:23px;
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  background: var(--light);
+  border-radius: 14px;
+  font-size: 24px;
+  margin-bottom: 12px;
 }
-.card h3 { margin:13px 0 7px; font-size:18px; }
-.card p { color:var(--muted); font-size:14px; margin:0; }
-.tests { background:var(--light); }
-.test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-.test-group { background:white; padding:23px; border-radius:15px; border:1px solid #e1ece3; }
-.test-group h3 { color:var(--dark); margin-top:0; }
-.test-group ul { list-style:none; padding:0; margin:0; }
-.test-group li { padding:7px 0; border-bottom:1px solid #edf2ee; font-size:14px; }
-.test-group li:last-child { border:0; }
-.test-group li::before { content:"✓"; color:var(--green); font-weight:bold; margin-right:8px; }
-.note { font-size:12px; color:var(--muted); margin-top:20px; }
-.booking-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:30px; align-items:start; }
-.booking-info { background:var(--dark); color:white; padding:28px; border-radius:18px; }
-.booking-info p { color:#d3e7db; }
-.booking-info a { color:#d4f18e; }
-.form-card { padding:25px; border:1px solid #e1ebe4; border-radius:17px; box-shadow:0 10px 35px #153c2410; }
-.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
-.field { display:flex; flex-direction:column; gap:6px; }
-.field.full { grid-column:1/-1; }
-label { font-size:13px; font-weight:700; }
+.card h3 { margin: 0 0 8px; }
+.card p { color: var(--muted); margin: 0; font-size: 14px; }
+
+/* DOCTORS */
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 17px;
+}
+.doctor-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 19px;
+  padding: 22px 15px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.doctor-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#dff5e9,#b9e7d0);
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  margin-bottom: 13px;
+}
+.doctor-card h3 { font-size: 16px; line-height: 1.4; margin: 0 0 7px; }
+.specialty { color: var(--green); font-weight: bold; font-size: 14px; min-height: 25px; }
+.doctor-card p { color: var(--muted); font-size: 13px; margin: 8px 0 16px; }
+.doctor-card .btn { width: 100%; margin-top: auto; padding: 10px 8px; font-size: 13px; }
+
+/* LAB TESTS */
+.test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+.test-group {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 21px;
+}
+.test-group h3 { color: var(--dark); margin-top: 0; }
+.test-group ul { padding-left: 20px; margin-bottom: 0; color: var(--muted); }
+.test-group li { padding: 3px 0; }
+
+/* APPOINTMENT */
+.booking-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+}
+.booking-info {
+  background: var(--dark);
+  color: white;
+  padding: 27px;
+  border-radius: 20px;
+}
+.booking-info p { color: #d9eee4; }
+.booking-info h3 { font-size: 24px; margin-top: 0; }
+.info-line { padding: 12px 0; border-top: 1px solid #ffffff30; }
+.form-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: var(--shadow);
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full { grid-column: 1/-1; }
+label { font-size: 14px; font-weight: bold; }
 input, select, textarea {
-  width:100%; padding:12px; border:1px solid #d7e3da;
-  border-radius:8px; background:#fff; color:var(--text);
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cfdfd6;
+  border-radius: 9px;
+  color: var(--text);
+  background: white;
+  outline: none;
 }
-textarea { min-height:90px; resize:vertical; }
-.form-card .btn { width:100%; margin-top:17px; }
-.form-help { color:var(--muted); font-size:12px; }
-.location { background:var(--light); }
-.location-grid { display:grid; grid-template-columns:1fr 1fr; gap:25px; align-items:stretch; }
-.location-card { background:white; padding:27px; border-radius:16px; border:1px solid #e2ece5; }
-.location-card p { color:var(--muted); }
+input:focus, select:focus, textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px #087f5b18;
+}
+textarea { min-height: 85px; resize: vertical; }
+.form-note { color: var(--muted); font-size: 12px; }
+
+/* LOCATION */
+.location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.location-card {
+  background: white;
+  border: 1px solid var(--border);
+  padding: 25px;
+  border-radius: 19px;
+}
+.location-card p { color: var(--muted); }
 .map {
-  min-height:320px; border:0; width:100%; height:100%;
-  min-height:320px; border-radius:16px;
+  width: 100%;
+  min-height: 320px;
+  border: 0;
+  border-radius: 19px;
 }
-footer { background:#073e2e; color:white; padding:30px 0; }
-.footer-row { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; align-items:center; }
-footer p { margin:4px 0; color:#d1e4d9; font-size:13px; }
-footer a { color:#d7f49a; }
-.float-wa {
-  position:fixed; bottom:18px; right:16px; z-index:30;
-  background:#168b4b; color:white; padding:13px 17px;
-  border-radius:40px; box-shadow:0 5px 22px #0002; font-weight:bold;
+footer { background: #073e2e; color: white; padding: 27px 20px; }
+.footer-row {
+  max-width: 1150px; margin: auto;
+  display: flex; justify-content: space-between;
+  gap: 15px; flex-wrap: wrap;
 }
-@media(max-width:760px) {
-  .nav { min-height:68px; }
-  .navlinks { gap:12px; }
-  .navlinks a:not(.btn) { display:none; }
-  .brand strong { font-size:14px; }
-  .brand img { width:43px; height:43px; }
-  .nav .btn { padding:10px 12px; font-size:12px; }
-  .hero { padding:43px 0; }
-  .hero-grid, .booking-grid, .location-grid { grid-template-columns:1fr; }
-  .hero-photo { height:260px; }
-  section { padding:49px 0; }
-  .cards { grid-template-columns:1fr 1fr; }
-  .test-grid { grid-template-columns:1fr; }
-  .form-grid { grid-template-columns:1fr; }
-  .field.full { grid-column:auto; }
-  .map { min-height:300px; }
+footer p { color: #d1e8dc; font-size: 13px; margin: 4px 0; }
+.whatsapp-float {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 30;
+  background: #19b967;
+  color: white;
+  padding: 13px 17px;
+  border-radius: 30px;
+  font-weight: bold;
+  box-shadow: 0 5px 22px #0002;
 }
-@media(max-width:390px) {
-  .cards { grid-template-columns:1fr; }
-  .hero-actions .btn { width:100%; }
+@media(max-width:900px) {
+  .navlinks { gap: 10px; font-size: 12px; }
+  .doctor-grid { grid-template-columns: repeat(2,1fr); }
+  .cards { grid-template-columns: repeat(2,1fr); }
+}
+@media(max-width:650px) {
+  .container { padding: 0 14px; }
+  .nav { min-height: 68px; flex-wrap: wrap; padding: 10px 0; }
+  .brand img { width: 43px; height: 43px; }
+  .brand strong { font-size: 14px; }
+  .brand small { font-size: 11px; }
+  .menu-toggle { display: block; }
+  .navlinks { display: none; width: 100%; flex-wrap: wrap; padding: 8px 0; gap: 12px 15px; }
+  .navlinks.open { display: flex; }
+  .navlinks a { font-size: 13px; }
+  .nav > .btn { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 38px 16px; gap: 25px; }
+  .hero-photo img { height: 260px; }
+  section { padding: 45px 16px; }
+  .cards, .test-grid, .booking-grid, .location-grid { grid-template-columns: 1fr; }
+  .doctor-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+  .doctor-card { padding: 17px 10px; }
+  .doctor-card h3 { font-size: 14px; }
+  .doctor-card .btn { font-size: 12px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .field.full { grid-column: auto; }
+  .form-card, .booking-info { padding: 19px; }
+  .map { min-height: 280px; }
 }
 </style>
 </head>
 
 <body>
+<div class="topbar">OMM Clinic & Patho Lab · Your Health, Our Priority</div>
+
 <header>
   <div class="container nav">
     <a class="brand" href="#home">
-      <img src="clinic-logo.jpg" alt="Omm Clinic logo" style="width:49px;height:49px;object-fit:contain;border-radius:50%;">
-      <span><strong>OMM CLINIC</strong><small>& PATHO LAB</small></span>
+      <img src="clinic-logo.jpg" alt="OMM Clinic logo" onerror="this.style.display='none'">
+      <span>
+        <strong>OMM CLINIC & PATHO LAB</strong>
+        <small>Clinic · Diagnostics · Patient Care</small>
+      </span>
     </a>
-    <nav class="navlinks" aria-label="Main navigation">
+
+    <button class="menu-toggle" id="menuToggle" type="button">☰ Menu</button>
+
+    <nav class="navlinks" id="navlinks">
+      <a href="#home">Home</a>
       <a href="#services">Services</a>
+      <a href="#doctors">Doctors</a>
       <a href="#tests">Lab Tests</a>
-      <a href="#location">Location</a>
-      <a class="btn" href="#appointment">Book Enquiry</a>
+      <a href="#location">Find Us</a>
+      <a href="#appointment">Appointment</a>
     </nav>
+
+    <a class="btn" href="#appointment">Book Appointment ↗</a>
   </div>
 </header>
 
 <main>
-<section class="hero" id="home">
-  <div class="container hero-grid">
+  <section class="hero" id="home">
     <div>
-      <span class="eyebrow">YOUR LOCAL HEALTHCARE DESTINATION</span>
-      <h1>Care you can trust.<br><span>Testing made easier.</span></h1>
-      <p>Welcome to Omm Clinic & Patho Lab in Balianta, Hanspal, Bhubaneswar. Contact our team for diagnostic test enquiries and appointment assistance.</p>
+      <span class="eyebrow">CARE YOU CAN COUNT ON</span>
+      <h1>Better care.<br><span>Better health.</span></h1>
+      <p>Welcome to OMM Clinic & Patho Lab. Explore our doctors and diagnostic services, find our location and send your appointment request through WhatsApp.</p>
       <div class="hero-actions">
         <a class="btn" href="#appointment">📅 Request Appointment</a>
         <a class="btn btn-outline" href="#location">📍 Find Our Clinic</a>
       </div>
-      <div class="trust">
-        <span>✓ Easy Enquiries</span>
-        <span>✓ Convenient Location</span>
-        <span>✓ Multiple Lab Tests</span>
-      </div>
+      <p>✓ Patient-focused care &nbsp; ✓ Clinic & lab services &nbsp; ✓ Easy WhatsApp request</p>
     </div>
-    <img class="hero-photo"
-      src="clinic-building.png"
-      alt="Healthcare professional in a clinical setting">
-  </div>
-</section>
+    <div class="hero-photo">
+      <img src="clinic-building.png" alt="OMM Clinic and Patho Lab building" onerror="this.style.display='none'">
+      <div class="photo-tag">OMM Clinic & Patho Lab</div>
+    </div>
+  </section>
 
-<section id="services">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">OUR SERVICES</span>
-      <h2>Healthcare and diagnostic services</h2>
-      <p>Get in touch to enquire about available tests, timings and appointment requirements.</p>
+  <section class="soft" id="services">
+    <div class="section-inner">
+      <div class="section-heading">
+        <span class="eyebrow">OUR SERVICES</span>
+        <h2>Healthcare support in one place</h2>
+        <p>Contact the clinic to confirm service availability, timings and preparation before your visit.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🩺</div>
+          <h3>Doctor Consultation</h3>
+          <p>Request a consultation with a listed doctor. Appointments are subject to clinic confirmation.</p>
+        </article>
+        <article class="card">
+          <div class="icon">🧪</div>
+          <h3>Pathology & Lab Tests</h3>
+          <p>Enquire about available diagnostic tests, sample collection and report timings.</p>
+        </article>
+        <article class="card">
+          <div class="icon">💚</div>
+          <h3>Patient Assistance</h3>
+          <p>Get help with directions, appointment enquiries and general clinic information.</p>
+        </article>
+      </div>
     </div>
-    <div class="cards">
-      <article class="card"><div class="icon">🩸</div><h3>Blood Tests</h3><p>Enquire about blood sugar, CBC, thyroid and other listed investigations.</p></article>
-      <article class="card"><div class="icon">🔬</div><h3>Pathology Tests</h3><p>Ask our team about available pathology and laboratory tests.</p></article>
-      <article class="card"><div class="icon">🧑‍⚕️</div><h3>Clinic Enquiries</h3><p>Contact the clinic for information about available consultations and timings.</p></article>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section class="tests" id="tests">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">TEST DIRECTORY</span>
-      <h2>Explore available test categories</h2>
-      <p>Listed from the clinic's supplied test board. Please confirm availability, price and preparation requirements with the clinic.</p>
-    </div>
-    <div class="test-grid">
-      <div class="test-group">
-        <h3>🩸 Blood & Health Profiles</h3>
-        <ul>
-          <li>Blood Sugar - Fasting</li><li>Blood Sugar - PP</li>
-          <li>Lipid Profile</li><li>Thyroid Profile (T3, T4, TSH)</li>
-          <li>TSH</li><li>CBC</li><li>Haemoglobin</li>
-          <li>TLC, TRBC, TPC, DC</li><li>Liver Profile (LFT)</li>
-          <li>Kidney Profile (KFT)</li><li>Urea & Creatinine</li>
-          <li>Bilirubin, SGOT & SGPT</li><li>Calcium</li>
-          <li>Sodium & Potassium</li><li>HbA1c</li><li>Cholesterol</li>
-          <li>Vitamin B12 & Vitamin D3</li><li>BT / CT</li><li>Sickling</li>
-        </ul>
+  <!-- DOCTORS SECTION -->
+  <section id="doctors">
+    <div class="section-inner">
+      <div class="section-heading">
+        <span class="eyebrow">OUR DOCTORS</span>
+        <h2>Choose your doctor</h2>
+        <p>Select a doctor to open the appointment form with their name already selected.</p>
       </div>
-      <div class="test-group">
-        <h3>🧫 Infection & Special Tests</h3>
-        <ul>
-          <li>Malaria</li><li>Widal</li><li>HIV</li>
-          <li>HBsAg</li><li>HCV</li><li>Dengue</li>
-          <li>CRP</li><li>ASO</li><li>RA Factor</li>
-          <li>Toxoplasma (TOXO)</li><li>VDRL</li><li>ESR</li>
-          <li>Pregnancy Test</li><li>Blood Grouping</li>
-        </ul>
-      </div>
-      <div class="test-group">
-        <h3>🧪 Other Investigations</h3>
-        <ul>
-          <li>Urine Examination</li><li>RE / ME</li>
-          <li>OBT</li><li>Stool Examination</li>
-          <li>Stool OBT</li><li>Semen Analysis</li>
-        </ul>
-        <p class="note">Some tests may require a doctor's advice, specific preparation or sample collection arrangements. Confirm with the clinic before visiting.</p>
-      </div>
-    </div>
-    <p class="note">This list is for general information and is not medical advice. Test availability and terminology should be confirmed by the clinic.</p>
-  </div>
-</section>
 
-<section id="appointment">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">GET IN TOUCH</span>
-      <h2>Request an appointment</h2>
-      <p>Fill in your details to prepare an enquiry message for the clinic on WhatsApp.</p>
-    </div>
-    <div class="booking-grid">
-      <div class="booking-info">
-        <h2>We're here to help</h2>
-        <p>Need to ask about a test or arrange a visit? Send an enquiry to the clinic. The clinic will need to confirm your appointment.</p>
-        <p><strong>Phone / WhatsApp</strong><br><a href="tel:07735721015">077357 21015</a></p>
-        <p><strong>Location</strong><br>1st Floor, Surekha Vatika, Shop No. C9/10, Puri Canal Road, Balianta, Hanspal, Bhubaneswar, Odisha.</p>
-        <a class="btn" style="background:#b8e34b;color:#173b29" href="https://wa.me/917735721015">Chat on WhatsApp</a>
+      <div class="doctor-grid">
+        <article class="doctor-card">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <h3>Dr. Manas Ranjan Pattnaik</h3>
+          <div class="specialty">MD Medicine</div>
+          <p>Appointment request</p>
+          <button class="btn doctor-book" type="button" data-doctor="Dr. Manas Ranjan Pattnaik — MD Medicine">Book Appointment</button>
+        </article>
+
+        <article class="doctor-card">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <h3>Dr. Nalinikant Panda</h3>
+          <div class="specialty">MD Gynaecology</div>
+          <p>Appointment request</p>
+          <button class="btn doctor-book" type="button" data-doctor="Dr. Nalinikant Panda — MD Gynaecology">Book Appointment</button>
+        </article>
+
+        <article class="doctor-card">
+          <div class="doctor-avatar">👨‍⚕️</div>
+          <h3>Dr. Amit Kumar Mohanty</h3>
+          <div class="specialty">MBBS</div>
+          <p>Appointment request</p>
+          <button class="btn doctor-book" type="button" data-doctor="Dr. Amit Kumar Mohanty — MBBS">Book Appointment</button>
+        </article>
+
+        <article class="doctor-card">
+          <div class="doctor-avatar">🩺</div>
+          <h3>Dr. Kalinga Bijay Mishra</h3>
+          <div class="specialty">Physiotherapy</div>
+          <p>Appointment request</p>
+          <button class="btn doctor-book" type="button" data-doctor="Dr. Kalinga Bijay Mishra — Physiotherapy">Book Appointment</button>
+        </article>
       </div>
-      <form class="form-card" id="bookingForm">
-        <div class="form-grid">
-          <div class="field">
-            <label for="name">Patient name *</label>
-            <input id="name" name="name" required maxlength="80" autocomplete="name" placeholder="Enter full name">
-          </div>
-          <div class="field">
-            <label for="phone">Mobile number *</label>
-            <input id="phone" name="phone" required type="tel" inputmode="tel" pattern="[0-9+\-\s]{10,15}" placeholder="Your contact number">
-          </div>
-          <div class="field">
-            <label for="test">Test / Enquiry *</label>
-            <select id="test" name="test" required>
-              <option value="">Select an option</option>
-              <option>Blood Sugar</option><option>CBC</option>
-              <option>Thyroid Profile</option><option>Lipid Profile</option>
-              <option>Liver Profile (LFT)</option><option>Kidney Profile (KFT)</option>
-              <option>Vitamin B12 / D3</option><option>Urine / Stool Test</option>
-              <option>Blood Grouping</option><option>Other Test</option>
-              <option>Clinic Enquiry</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="date">Preferred date</label>
-            <input id="date" name="date" type="date">
-          </div>
-          <div class="field full">
-            <label for="message">Additional message (optional)</label>
-            <textarea id="message" name="message" maxlength="500" placeholder="Your question or preferred time"></textarea>
-          </div>
+      <p class="form-note" style="text-align:center;margin-top:18px">Please confirm doctor availability and qualifications directly with the clinic.</p>
+    </div>
+  </section>
+
+  <section class="soft" id="tests">
+    <div class="section-inner">
+      <div class="section-heading">
+        <span class="eyebrow">DIAGNOSTICS</span>
+        <h2>Laboratory tests</h2>
+        <p>Contact the clinic to confirm test availability and any preparation required.</p>
+      </div>
+      <div class="test-grid">
+        <div class="test-group">
+          <h3>🩸 Blood Tests</h3>
+          <ul>
+            <li>Complete Blood Count (CBC)</li>
+            <li>Blood Sugar — Fasting / PP</li>
+            <li>HbA1c</li>
+            <li>Haemoglobin</li>
+            <li>ESR</li>
+          </ul>
         </div>
-        <button class="btn" type="submit">Send Enquiry on WhatsApp →</button>
-        <p class="form-help">This form opens WhatsApp with your enquiry details. It does not directly save a booking. Please wait for clinic confirmation. Avoid sharing medical reports or sensitive health details here.</p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section class="location" id="location">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">FIND US</span>
-      <h2>Visit Omm Clinic & Patho Lab</h2>
-      <p>Use the map and directions link to plan your visit.</p>
-    </div>
-    <div class="location-grid">
-      <div class="location-card">
-        <h3>📍 Clinic Address</h3>
-        <p>1st Floor, Surekha Vatika, Shop No. C9/10, Puri Canal Road, Balianta, Hanspal, Bhubaneswar, Odisha.</p>
-        <p><strong>Phone:</strong> <a href="tel:07735721015">077357 21015</a></p>
-        <p><strong>Hours:</strong> Please contact the clinic to confirm current opening hours.</p>
-        <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Omm+Clinic+and+Patholab+Balianta+Hanspal+Bhubaneswar">Get Directions ↗</a>
+        <div class="test-group">
+          <h3>🧬 Health Profiles</h3>
+          <ul>
+            <li>Liver Function Test (LFT)</li>
+            <li>Kidney Function Test (KFT)</li>
+            <li>Lipid Profile</li>
+            <li>Thyroid Profile</li>
+            <li>Vitamin tests</li>
+          </ul>
+        </div>
+        <div class="test-group">
+          <h3>🔬 Other Tests</h3>
+          <ul>
+            <li>Urine Routine & Microscopy</li>
+            <li>Stool tests</li>
+            <li>Electrolytes</li>
+            <li>Other available investigations</li>
+            <li>Test availability on enquiry</li>
+          </ul>
+        </div>
       </div>
-      <iframe class="map" title="Map showing Omm Clinic and Patho Lab area"
-        src="https://maps.google.com/maps?q=Omm%20Clinic%20and%20Patholab%2C%20Balianta%2C%20Hanspal%2C%20Bhubaneswar&t=&z=14&ie=UTF8&iwloc=&output=embed"
-        loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <div style="text-align:center;margin-top:25px">
+        <a class="btn" href="#appointment">Enquire About a Test</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- APPOINTMENT FORM -->
+  <section id="appointment">
+    <div class="section-inner">
+      <div class="section-heading">
+        <span class="eyebrow">APPOINTMENT REQUEST</span>
+        <h2>Request your appointment</h2>
+        <p>Fill in your details. WhatsApp will open with your request ready to send to the clinic.</p>
+      </div>
+
+      <div class="booking-grid">
+        <aside class="booking-info">
+          <h3>We're here to help</h3>
+          <p>Send your preferred doctor, date and time. The clinic must confirm availability before your appointment is final.</p>
+          <div class="info-line">📲 <strong>WhatsApp Appointment</strong><br>Send your request directly to the clinic.</div>
+          <div class="info-line">📍 <strong>Clinic Location</strong><br>Balianta, Hanspal, Bhubaneswar, Odisha.</div>
+          <div class="info-line">ℹ️ <strong>Important</strong><br>This form sends a request only; it does not confirm a booking.</div>
+        </aside>
+
+        <form class="form-card" id="appointmentForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="patientName">Patient Name *</label>
+              <input id="patientName" name="patientName" autocomplete="name" required placeholder="Enter full name">
+            </div>
+            <div class="field">
+              <label for="phone">Mobile Number *</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" required placeholder="Enter mobile number">
+            </div>
+            <div class="field full">
+              <label for="doctor">Select Doctor *</label>
+              <select id="doctor" name="doctor" required>
+                <option value="">Choose a doctor</option>
+                <option>Dr. Manas Ranjan Pattnaik — MD Medicine</option>
+                <option>Dr. Nalinikant Panda — MD Gynaecology</option>
+                <option>Dr. Amit Kumar Mohanty — MBBS</option>
+                <option>Dr. Kalinga Bijay Mishra — Physiotherapy</option>
+                <option>Any available doctor / General enquiry</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="date">Preferred Date *</label>
+              <input id="date" name="date" type="date" required>
+            </div>
+            <div class="field">
+              <label for="time">Preferred Time</label>
+              <select id="time" name="time">
+                <option>Any available time</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="reason">Reason for Visit / Test Enquiry</label>
+              <textarea id="reason" name="reason" placeholder="Optional — briefly describe your appointment or test enquiry"></textarea>
+            </div>
+            <div class="field full">
+              <button class="btn" type="submit">Send Request on WhatsApp ↗</button>
+              <p class="form-note">Please avoid entering highly sensitive medical details in this enquiry. This is a request, not a confirmed appointment.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="location">
+    <div class="section-inner">
+      <div class="section-heading">
+        <span class="eyebrow">FIND US</span>
+        <h2>Visit OMM Clinic & Patho Lab</h2>
+        <p>Use the map for directions. Contact the clinic if you need help finding the entrance.</p>
+      </div>
+      <div class="location-grid">
+        <div class="location-card">
+          <h3>📍 Clinic Address</h3>
+          <p>1st Floor, Surekha Vatika, Shop No. C9/10,<br>Puri Canal Road, Balianta, Hanspal,<br>Bhubaneswar, Odisha, India</p>
+          <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=OMM+Clinic+and+Patho+Lab+Balianta+Hanspal+Bhubaneswar">Get Directions ↗</a>
+          <p style="margin-top:18px"><strong>Appointment / Enquiry:</strong><br>Use the WhatsApp appointment form on this page.</p>
+        </div>
+        <iframe class="map" title="Map showing OMM Clinic and Patho Lab" loading="lazy" src="https://maps.google.com/maps?q=OMM%20Clinic%20and%20Patho%20Lab%2C%20Balianta%2C%20Hanspal%2C%20Bhubaneswar&t=&z=14&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <div class="container footer-row">
-    <div><strong>OMM CLINIC & PATHO LAB</strong><p>Balianta, Hanspal, Bhubaneswar, Odisha</p></div>
-    <div><p>Call: <a href="tel:07735721015">077357 21015</a></p><p>© <span id="year"></span> Omm Clinic & Patho Lab</p></div>
+  <div class="footer-row">
+    <div>
+      <strong>OMM CLINIC & PATHO LAB</strong>
+      <p>Clinic · Diagnostics · Patient Care</p>
+    </div>
+    <p>© <span id="year"></span> OMM Clinic & Patho Lab. All rights reserved.</p>
   </div>
 </footer>
 
-<a class="float-wa" href="https://wa.me/917735721015" target="_blank" rel="noopener" aria-label="Contact on WhatsApp">☘ WhatsApp</a>
+<a class="whatsapp-float" href="https://wa.me/917735721015?text=Hello%20OMM%20Clinic%2C%20I%20have%20an%20enquiry." target="_blank" rel="noopener">WhatsApp ↗</a>
 
 <script>
+const WHATSAPP_NUMBER = "917735721015";
+
 document.getElementById("year").textContent = new Date().getFullYear();
 
-document.getElementById("bookingForm").addEventListener("submit", function(event) {
+const menuToggle = document.getElementById("menuToggle");
+const navlinks = document.getElementById("navlinks");
+
+menuToggle.addEventListener("click", function() {
+  navlinks.classList.toggle("open");
+});
+
+navlinks.querySelectorAll("a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    navlinks.classList.remove("open");
+  });
+});
+
+const doctorSelect = document.getElementById("doctor");
+
+document.querySelectorAll(".doctor-book").forEach(function(button) {
+  button.addEventListener("click", function() {
+    doctorSelect.value = button.dataset.doctor;
+    document.getElementById("appointment").scrollIntoView({behavior:"smooth"});
+    setTimeout(function() {
+      document.getElementById("patientName").focus({preventScroll:true});
+    }, 400);
+  });
+});
+
+const dateInput = document.getElementById("date");
+const now = new Date();
+const localToday = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+  .toISOString().slice(0,10);
+dateInput.min = localToday;
+
+document.getElementById("appointmentForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
+  if (!this.reportValidity()) return;
+
+  const name = document.getElementById("patientName").value.trim();
   const phone = document.getElementById("phone").value.trim();
-  const test = document.getElementById("test").value;
-  const date = document.getElementById("date").value || "Not specified";
-  const message = document.getElementById("message").value.trim();
+  const doctor = doctorSelect.value;
+  const date = dateInput.value;
+  const time = document.getElementById("time").value;
+  const reason = document.getElementById("reason").value.trim() || "Not specified";
 
-  if (!name || !phone || !test) {
-    alert("Please fill in all required fields.");
-    return;
-  }
-
-  const text = [
-    "Hello Omm Clinic & Patho Lab, I would like to make an appointment enquiry.",
+  const message = [
+    "Hello OMM Clinic & Patho Lab, I would like to request an appointment.",
     "",
-    "Patient name: " + name,
-    "Contact number: " + phone,
-    "Test / enquiry: " + test,
-    "Preferred date: " + date,
-    "Additional message: " + (message || "None"),
+    "Patient Name: " + name,
+    "Mobile Number: " + phone,
+    "Preferred Doctor: " + doctor,
+    "Preferred Date: " + date,
+    "Preferred Time: " + time,
+    "Reason / Test Enquiry: " + reason,
     "",
-    "Please confirm availability and appointment details."
+    "Please confirm the doctor's availability. I understand this is a request and not a confirmed appointment."
   ].join("\n");
 
-  window.open("https://wa.me/917735721015?text=" + encodeURIComponent(text), "_blank");
+  window.open(
+    "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message),
+    "_blank"
+  );
 });
 </script>
 </body>
-  </html>
+</html>
